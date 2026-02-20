@@ -1,7 +1,28 @@
 import React from "react";
 import { Dot , MoveUpRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { ExternalLink, Github } from "lucide-react";
 
+const projects = [
+  {
+    id: 1,
+    title: 'E-Learning Platform',
+    description: 'A responsive educational platform featuring a shopping cart and dedicated blog section.',
+    image: './src/assets/work.avif',
+    techStack: ['React', 'Tailwind CSS', 'React Router Dom' , 'Redux Toolkit'],
+    liveLink: 'https://e-learning-five-blond.vercel.app/',
+    githubLink: 'https://github.com/ZulkaifAhmad/E-Learning.git'
+  },
+  {
+    id: 2,
+    title: 'Textora',
+    description: 'A blog-themed frontend design project with a modern, clean, and responsive UI.',
+    image: './src/assets/work.avif',
+    techStack: ['React', 'Redux Toolkit' , 'React Router Dom', 'Tailwind CSS'],
+    liveLink: 'https://textoria-tawny.vercel.app/',
+    githubLink: 'https://github.com/ZulkaifAhmad/Textora.git'
+  },
+];
 
 function Home() {
   const naviagte = useNavigate()
@@ -49,24 +70,58 @@ function Home() {
 
       <div className="work">
         <h2 className="text-2xl font-semibold mt-10 tracking-tight mb-4">Recent Work</h2>
-        <div className="flex flex-col md:flex-row gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {projects.map((project) => (
+            <div 
+              key={project.id} 
+              className="bg-gray-50 rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-300 flex flex-col"
+            >
+              <div className="h-56 w-full bg-gray-200">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
+                <p className="text-gray-600 text-sm mb-5 flex-grow">{project.description}</p>
+                
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.techStack.map((tech, index) => (
+                    <span 
+                      key={index} 
+                      className="bg-gray-200 text-gray-800 text-[11px] px-2.5 py-1 rounded-md font-semibold tracking-wide"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
 
-          <div className="bg-gray-100 cursor-pointer p-4 rounded-lg shadow-sm w-full md:w-1/2">
-            <img src="./src/assets/work.avif" alt="" 
-              className="w-full h-60 object-cover rounded-md mb-3"
-            />
-            <h3 className="text-lg font-medium mb-2">E-Learning Site</h3>
-            <p className="text-sm text-gray-700">A modern e-commerce website built with React and Tailwind CSS.</p>
-          </div>
-
-          <div className="bg-gray-100 cursor-pointer p-4 rounded-lg shadow-sm w-full md:w-1/2">
-            <img src="./src/assets/work.avif" alt="" 
-              className="w-full h-60 object-cover rounded-md mb-3"
-            />
-            <h3 className="text-lg font-medium mb-2">Textora</h3>
-            <p className="text-sm text-gray-700">A responsive portfolio site showcasing my work and skills.</p>
-          </div>
-
+                <div className="flex gap-3 mt-auto">
+                  <a 
+                    href={project.liveLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-1.5 bg-gray-900 text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-gray-800 transition-colors shadow-sm"
+                  >
+                    <ExternalLink size={16} />
+                    Live Demo
+                  </a>
+                  <a 
+                    href={project.githubLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-1.5 bg-white text-gray-900 border border-gray-300 py-2 px-4 rounded-md text-sm font-medium hover:border-gray-900 hover:bg-gray-50 transition-colors shadow-sm"
+                  >
+                    <Github size={16} />
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
       

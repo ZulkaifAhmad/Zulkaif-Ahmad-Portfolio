@@ -2,8 +2,8 @@
 2. setup layout design of website  -- Done
 3. make a navbar -- Done
 4. make it responsive -- Done 
-5. make a home page -- pending
-6. make about page 
+5. make a home page -- Done
+6. make about page -- pending
 7. make contact page 
 8. projects page 
 9. Github page 

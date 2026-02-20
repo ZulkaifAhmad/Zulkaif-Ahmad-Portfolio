@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import "./Layout.css"
 import { NavLink } from 'react-router-dom'
-import { House, User, Phone, MoveUpRight, Target, MoveRight, Facebook, Linkedin, Instagram, Menu, X } from 'lucide-react'
+import { House, User, Phone, MoveUpRight, Github , Target, MoveRight, Facebook, Linkedin, Instagram, Menu, X } from 'lucide-react'
 
 const navLinks = [
   { name: 'Home', path: '/', Icon: House },
   { name: 'About', path: '/about', Icon: User },
   { name: 'Portfolio', path: '/portfolio', Icon: Target },
-  { name: 'Contact', path: '/contact', Icon: Phone }
+  { name: 'Contact', path: '/contact', Icon: Phone },
+  { name: 'Github', path: '/github', Icon: Github },
 ]
 
 function Navbar() {
@@ -52,7 +53,7 @@ function Navbar() {
           </div>
         </div>
 
-        <div className="links w-full flex flex-col gap-2 mt-8 md:mt-6">
+        <div className="links w-full flex flex-col gap-1 mt-8 md:mt-6">
           {navLinks.map(({ name, path, Icon }) => (
             <NavLink 
               key={name} 
