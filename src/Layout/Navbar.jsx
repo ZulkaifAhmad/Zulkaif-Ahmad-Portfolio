@@ -16,8 +16,8 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <>
-      <div className="md:hidden fixed top-0 left-0 w-full bg-white z-50 px-4 py-3 flex justify-between items-center border-b border-gray-100 shadow-sm">
+    <div className="relative md:static w-full md:w-auto">
+      <div className="md:hidden w-full bg-white z-50 px-4 py-3 flex justify-between items-center border-b border-gray-100 shadow-sm">
         <div className="flex items-center gap-2">
           <img 
             className='w-8 h-8 rounded-full object-cover'
@@ -32,14 +32,14 @@ function Navbar() {
 
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black/20 z-40 md:hidden" 
+          className="absolute inset-0 bg-black/20 z-40 md:hidden h-full min-h-screen" 
           onClick={() => setIsOpen(false)}
         />
       )}
 
       <div 
         id='navbar' 
-        className={`fixed md:sticky top-0 left-0 z-40 h-screen w-64 md:w-full bg-white px-5 py-6 md:py-8 flex flex-col justify-start items-center border-r border-gray-100 md:border-none shadow-xl md:shadow-none transition-transform duration-300 ease-in-out ${
+        className={`absolute md:sticky top-[57px] md:top-0 left-0 z-40 h-[calc(100vh-57px)] md:h-screen w-64 md:w-full bg-white px-5 py-6 md:py-8 flex flex-col justify-start items-center border-r border-gray-100 md:border-none shadow-xl md:shadow-none transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
@@ -98,7 +98,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
