@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "./Layout.css"
 import { NavLink } from 'react-router-dom'
 import { House, User, Phone, MoveUpRight, Github , Target, MoveRight, Facebook, Linkedin, Instagram, Menu, X } from 'lucide-react'
-import { pic } from '../assets/assets'
+import { pic } from '../assets/assets.js'
 
 const navLinks = [
   { name: 'Home', path: '/', Icon: House },
@@ -21,7 +21,7 @@ function Navbar() {
         <div className="flex items-center gap-2">
           <img 
             className='w-8 h-8 rounded-full object-cover'
-            src="/src/assets/avtar.avif" alt="Zulkaif Ahmad" 
+            src={pic} alt="Zulkaif Ahmad" 
           />
           <p className='text-sm font-semibold'>Zulkaif Ahmad</p>
         </div>

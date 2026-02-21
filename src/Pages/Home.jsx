@@ -3,7 +3,7 @@ import { Dot, MoveUpRight, ExternalLink, Github, Briefcase, GraduationCap } from
 import { useNavigate } from "react-router-dom";
 import { skillsData } from "./About";
 import SkillBadge from "../Components/SkillBadge";
-import { pic } from "../assets/assets";
+import { pic , E , textora } from "../assets/assets";
 
 const projects = [
   {
@@ -11,7 +11,7 @@ const projects = [
     title: "E-Learning Platform",
     description:
       "A responsive educational platform featuring a shopping cart and dedicated blog section.",
-    image: "./src/assets/E.png",
+    image: E,
     techStack: ["React", "Tailwind CSS", "React Router Dom", "Redux Toolkit"],
     liveLink: "https://e-learning-five-blond.vercel.app/",
     githubLink: "https://github.com/ZulkaifAhmad/E-Learning.git",
@@ -21,7 +21,7 @@ const projects = [
     title: "Textora",
     description:
       "A blog-themed frontend design project with a modern, clean, and responsive UI.",
-    image: "./src/assets/textora.png",
+    image: textora,
     techStack: ["React", "Redux Toolkit", "React Router Dom", "Tailwind CSS"],
     liveLink: "https://textoria-tawny.vercel.app/",
     githubLink: "https://github.com/ZulkaifAhmad/Textora.git",
