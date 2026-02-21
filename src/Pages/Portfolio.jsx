@@ -6,7 +6,7 @@ const projects = [
     id: 1,
     title: 'E-Learning Platform',
     description: 'A responsive educational platform featuring a shopping cart and dedicated blog section.',
-    image: './src/assets/work.avif',
+    image: './src/assets/E.png',
     techStack: ['React', 'Tailwind CSS', 'React Router Dom' , 'Redux Toolkit'],
     liveLink: 'https://e-learning-five-blond.vercel.app/',
     githubLink: 'https://github.com/ZulkaifAhmad/E-Learning.git'
@@ -15,7 +15,7 @@ const projects = [
     id: 2,
     title: 'Textora',
     description: 'A blog-themed frontend design project with a modern, clean, and responsive UI.',
-    image: './src/assets/work.avif',
+    image: './src/assets/textora.png',
     techStack: ['React', 'Redux Toolkit' , 'React Router Dom', 'Tailwind CSS'],
     liveLink: 'https://textoria-tawny.vercel.app/',
     githubLink: 'https://github.com/ZulkaifAhmad/Textora.git'
@@ -24,7 +24,7 @@ const projects = [
     id: 3,
     title: 'Gemini AI Clone',
     description: 'An interactive chat application integrating real-time API responses with custom state management.',
-    image: './src/assets/work.avif',
+    image: './src/assets/gemini.png',
     techStack: ['React', 'Tailwind CSS', 'API Integration'],
     liveLink: 'https://google-gemini-clone-tau.vercel.app/',
     githubLink: 'https://github.com/ZulkaifAhmad/Google-Gemini-Clone.git'
@@ -33,10 +33,19 @@ const projects = [
     id: 4,
     title: 'Todo App',
     description: 'A fully functional todo application with local storage persistence and drag-and-drop functionality.',
-    image: './src/assets/work.avif',
+    image: './src/assets/todo.png',
     techStack: ['React', 'Tailwind CSS', 'useContext API'],
     liveLink: `https://todo-sigma-sage-54.vercel.app/`,
     githubLink: 'https://github.com/ZulkaifAhmad/Todo-App-React_Practice.git'
+  },
+  {
+    id: 5,
+    title: 'Portfolio Website',
+    description: 'A responsive portfolio website showcasing my projects and skills.',
+    image: './src/assets/portfolio.png',
+    techStack: ['React', 'Tailwind CSS', 'Lucide React' , 'Tanstack Query' , 'React Router Dom'],
+    liveLink: `#`,
+    githubLink: 'https://github.com/ZulkaifAhmad/Zulkaif-Ahmad-Portfolio.git'
   }
 ];
 

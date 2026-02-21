@@ -2,6 +2,8 @@ import React from "react";
 import { MoveUpRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import ExperienceCard from "../Components/Experience";
+import {gojins , university, pic , college, school, hiskytech} from "../assets/assets.js";
+
 import {
   Atom,
   FileJson,
@@ -18,10 +20,7 @@ import {
 } from "lucide-react";
 import SkillBadge from "../Components/SkillBadge";
 
-const About = () => {
-  const naviagte = useNavigate();
-
-  const skillsData = [
+ export let skillsData = [
     {
       name: "HTML5",
       url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
@@ -51,6 +50,11 @@ const About = () => {
     { name: "VS Code", url: "https://code.visualstudio.com/", icon: Code2 },
     { name: "Postman", url: "https://www.postman.com/", icon: Send },
   ];
+
+const About = () => {
+  const naviagte = useNavigate();
+
+  
 
   return (
     <div className="min-h-screen bg-white text-gray-800 font-sans">
@@ -89,7 +93,7 @@ const About = () => {
 
         <div className="bg-gray-200 rounded-2xl aspect-square flex items-center justify-center text-gray-400 overflow-hidden shadow-lg border border-gray-300">
           <img
-            src="./src/assets/avtar2.avif"
+            src={pic}
             alt="Profile Image"
             className="w-full h-full object-cover"
           />
@@ -103,6 +107,7 @@ const About = () => {
           endDate="20 March 2025"
           role="Web Developer Intern"
           company="GO JINS "
+          img={gojins}
           description="Developed responsive web applications using React.js and Next js. Collaborated with Team to implement pixel-perfect designs and optimized application performance."
           link="https://gojins.com/"
         />
@@ -111,6 +116,7 @@ const About = () => {
           endDate="23 Aug 2024"
           role="Frontend Developer Intern"
           company="HISKYTECH"
+          img={hiskytech}
           description="Developed responsive web applications using React.js and Tailwind CSS. Collaborated with UX/UI designers to implement pixel-perfect designs and optimized application performance."
           link="https://hiskytechs.com/"
         />
@@ -122,6 +128,7 @@ const About = () => {
           startDate="2023"
           endDate="Present (2027)"
           role="BS Computer Science"
+          img={university}
           company="University of Agriculture Peshawar"
           description="Pursuing a comprehensive curriculum encompassing core computer science principles, software engineering methodologies, data structures, algorithms, and computational mathematics."
           link="https://www.aup.edu.pk/"
@@ -129,6 +136,7 @@ const About = () => {
         <ExperienceCard
           startDate="2021"
           endDate="2023"
+          img={college}
           role="Computer Science (HSSC)"
           company="The Brilliant College Peshawar"
           description="Completed Higher Secondary School Certificate (ICS) with a focus on computer science, advanced mathematics, and foundational programming concepts, preparing for university-level software engineering."
@@ -138,6 +146,7 @@ const About = () => {
           startDate="2020"
           endDate="2021"
           role="Science Student (SSC)"
+          img={school}
           company="Ittefaq Model School and College"
           description="Completed Secondary School Certificate (SSC) with a strong foundation in core science subjects, developing analytical and mathematical skills as a stepping stone for advanced studies."
           link="https://web.facebook.com/profile.php?id=100086016085094"
@@ -163,7 +172,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-white py-16 md:py-15">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             My Journey & Vision
@@ -184,7 +193,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-white py-16 md:py-15">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Beyond the Screen

@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 import {
   Mail,
   MapPin,
   Github,
   Linkedin,
+  Facebook,
   Send,
   Phone,
   Twitter,
@@ -11,6 +14,31 @@ import {
 } from "lucide-react";
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_t5rg0cd",
+        "template_6fg6cwe",
+        form.current,
+        "5_Ssg3nCw92qMcakg",
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          e.target.reset();
+          toast.success("Message sent successfully!");
+        },
+        (error) => {
+          console.log(error.text);
+          toast.error("Failed to send the message, please try again.");
+        },
+      );
+  };
+
   return (
     <div className="min-h-screen bg-white py-16 md:py-24 font-sans text-gray-800">
       <div className="max-w-7xl mx-auto px-20">
@@ -39,7 +67,7 @@ const Contact = () => {
 
             <div className="flex flex-col gap-6">
               <a
-                href="mailto:hello@example.com"
+                href="mailto:zulkaifkhan183@gmail.com"
                 className="group flex items-center gap-4"
               >
                 <div className="p-3 bg-gray-50 border border-gray-200 rounded-lg group-hover:border-blue-400 group-hover:text-blue-600 transition-colors">
@@ -94,45 +122,49 @@ const Contact = () => {
               <h3 className="text-sm font-semibold text-gray-900 mb-4">
                 Connect with me
               </h3>
-              <div className="flex gap-4">
+              <div className="flex gap-4 w-full items-center justify-start mt-1">
                 <a
-                  href="https://github.com"
+                  href="https://www.linkedin.com/in/zulkaif-ahmad-28a0512b7/"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:border-gray-900 hover:text-gray-900 hover:shadow-sm transition-all hover:-translate-y-1"
+                  rel="noreferrer"
+                  className="p-2 bg-gray-50 rounded-lg hover:bg-[#000000] hover:text-white text-gray-600 transition-all duration-300 shadow-sm"
                 >
-                  <Github size={20} />
+                  <Linkedin size={20} strokeWidth={1.5} />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://github.com/ZulkaifAhmad"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:border-blue-600 hover:text-blue-600 hover:shadow-sm transition-all hover:-translate-y-1"
+                  rel="noreferrer"
+                  className="p-2 bg-gray-50 rounded-lg hover:bg-[#0A66C2] hover:text-white text-gray-600 transition-all duration-300 shadow-sm"
                 >
-                  <Linkedin size={20} />
+                  <Github size={20} strokeWidth={1.5} />
                 </a>
                 <a
-                  href="https://twitter.com"
+                  href="https://web.facebook.com/zulkaif.ahmad.149176"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:border-blue-400 hover:text-blue-400 hover:shadow-sm transition-all hover:-translate-y-1"
+                  rel="noreferrer"
+                  className="p-2 bg-gray-50 rounded-lg hover:bg-[#1877F2] hover:text-white text-gray-600 transition-all duration-300 shadow-sm"
                 >
-                  <Twitter size={20} />
+                  <Facebook size={20} strokeWidth={1.5} />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/zulkaif497/"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:border-pink-600 hover:text-pink-600 hover:shadow-sm transition-all hover:-translate-y-1"
+                  rel="noreferrer"
+                  className="p-2 bg-gray-50 rounded-lg hover:bg-[#E4405F] hover:text-white text-gray-600 transition-all duration-300 shadow-sm"
                 >
-                  <Instagram size={20} />
+                  <Instagram size={20} strokeWidth={1.5} />
                 </a>
               </div>
             </div>
           </div>
 
           <div className="bg-white p-8 md:p-10 rounded-2xl shadow-lg border border-gray-100">
-            <form className="flex flex-col gap-6">
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              className="flex flex-col gap-6"
+            >
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label
@@ -144,6 +176,7 @@ const Contact = () => {
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     placeholder="John Doe"
                     className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 transition-all outline-none"
                     required
@@ -159,6 +192,7 @@ const Contact = () => {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     placeholder="john@example.com"
                     className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 transition-all outline-none"
                     required
@@ -176,6 +210,7 @@ const Contact = () => {
                 <input
                   type="text"
                   id="subject"
+                  name="title"
                   placeholder="Frontend Internship Opportunity"
                   className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 transition-all outline-none"
                   required
@@ -191,6 +226,7 @@ const Contact = () => {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows="6"
                   placeholder="Tell me about your project or opportunity..."
                   className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 transition-all outline-none resize-none"

@@ -9,7 +9,10 @@ import About from './Pages/About.jsx'
 import Github from './Pages/Github.jsx'
 import Portfolio from './Pages/Portfolio.jsx'
 import Contact from './Pages/Contact.jsx'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Toaster } from 'react-hot-toast';
 
+const queryClient = new QueryClient();
 
 const routes = createBrowserRouter([
   {
@@ -42,6 +45,9 @@ const routes = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <QueryClientProvider client={queryClient}>
+    <Toaster position="top-right" reverseOrder={false} />
     <RouterProvider router={routes}></RouterProvider>
+    </QueryClientProvider>
   </StrictMode>,
 )

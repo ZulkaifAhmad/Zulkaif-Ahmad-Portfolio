@@ -1,33 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
 const Github = () => {
-  const [profile, setProfile] = useState(null);
-  const [repos, setRepos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const githubUsername = 'ZulkaifAhmad';
 
-  const githubUsername = 'ZulkaifAhmad'; 
-
-  useEffect(() => {
-    const fetchGithubData = async () => {
-      try {
-        const profileRes = await axios.get(`https://api.github.com/users/${githubUsername}`);
-        const reposRes = await axios.get(`https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=6`);
-        
-        setProfile(profileRes.data);
-        setRepos(reposRes.data);
-        setLoading(false);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
-      }
+  const fetchGithubData = async () => {
+    const [profileRes, reposRes] = await Promise.all([
+      axios.get(`https://api.github.com/users/${githubUsername}`),
+      axios.get(`https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=6`)
+    ]);
+    
+    return {
+      profile: profileRes.data,
+      repos: reposRes.data
     };
+  };
 
-    fetchGithubData();
-  }, [githubUsername]);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['github', githubUsername],
+    queryFn: fetchGithubData,
+  });
 
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-[400px]">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
@@ -39,10 +34,12 @@ const Github = () => {
     return (
       <div className="text-red-500 text-center p-8 bg-red-50 rounded-lg">
         <p className="font-semibold text-lg">Failed to load GitHub data</p>
-        <p className="text-sm">{error}</p>
+        <p className="text-sm">{error.message}</p>
       </div>
     );
   }
+
+  const { profile, repos } = data;
 
   return (
     <div className="max-w-6xl mx-auto p-4 md:p-8 bg-gray-50 min-h-screen font-sans">

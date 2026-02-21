@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin, Twitter ,Facebook , Instagram} from "lucide-react";
 
 export default function Footer() {
   return (
@@ -9,15 +9,18 @@ export default function Footer() {
         </p>
         
         <div className="flex items-center gap-5">
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-slate-800 transition-colors">
+          <a href="https://github.com/ZulkaifAhmad" target="_blank" rel="noreferrer" className="p-2 bg-gray-50 rounded-lg hover:bg-[#000000] hover:text-white text-gray-600 transition-all duration-300 shadow-sm">
             <Github size={20} />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-blue-600 transition-colors">
+          <a href="https://linkedin.com/in/zulkaif-ahmad-28a0512b7" target="_blank" rel="noreferrer" className="p-2 bg-gray-50 rounded-lg hover:bg-[#1877F2] hover:text-white text-gray-600 transition-all duration-300 shadow-sm">
             <Linkedin size={20} />
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
-            <Twitter size={20} />
-          </a>
+          <a href="https://web.facebook.com/zulkaif.ahmad.149176" target="_blank" rel="noreferrer" className="p-2 bg-gray-50 rounded-lg hover:bg-[#1877F2] hover:text-white text-gray-600 transition-all duration-300 shadow-sm">
+              <Facebook size={20} strokeWidth={1.5} />
+            </a>
+            <a href="https://www.instagram.com/zulkaif497/" target="_blank" rel="noreferrer" className="p-2 bg-gray-50 rounded-lg hover:bg-[#E4405F] hover:text-white text-gray-600 transition-all duration-300 shadow-sm">
+              <Instagram size={20} strokeWidth={1.5} />
+            </a>
         </div>
       </div>
     </footer>

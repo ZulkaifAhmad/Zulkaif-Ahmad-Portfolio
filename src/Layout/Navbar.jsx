@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./Layout.css"
 import { NavLink } from 'react-router-dom'
 import { House, User, Phone, MoveUpRight, Github , Target, MoveRight, Facebook, Linkedin, Instagram, Menu, X } from 'lucide-react'
+import { pic } from '../assets/assets'
 
 const navLinks = [
   { name: 'Home', path: '/', Icon: House },
@@ -45,7 +46,7 @@ function Navbar() {
         <div className="hidden md:flex w-full gap-3 items-center pb-6 border-b border-gray-100">
           <img 
             className='w-12 h-12 rounded-full object-cover shadow-sm'
-            src="/src/assets/avtar.avif" alt="Zulkaif Ahmad" 
+            src={pic} alt="Zulkaif Ahmad" 
           />
           <div className="flex flex-col items-start justify-center">
             <p className='text-base leading-4 font-medium text-gray-900'>Zulkaif Ahmad</p>
@@ -82,13 +83,16 @@ function Navbar() {
         <div className="online pt-6 w-full mt-auto flex flex-col items-start gap-3 border-t border-gray-100">
           <p className='text-xs font-bold text-gray-400 uppercase tracking-wider'>Let's Connect</p>
           <div className="flex gap-4 w-full items-center justify-start mt-1">
-            <a href="#" target="_blank" rel="noreferrer" className="p-2 bg-gray-50 rounded-lg hover:bg-[#1877F2] hover:text-white text-gray-600 transition-all duration-300 shadow-sm">
-              <Facebook size={20} strokeWidth={1.5} />
-            </a>
-            <a href="https://www.linkedin.com/in/zulkaif-ahmad-28a0512b7/" target="_blank" rel="noreferrer" className="p-2 bg-gray-50 rounded-lg hover:bg-[#0A66C2] hover:text-white text-gray-600 transition-all duration-300 shadow-sm">
+            <a href="https://www.linkedin.com/in/zulkaif-ahmad-28a0512b7/" target="_blank" rel="noreferrer" className="p-2 bg-gray-50 rounded-lg hover:bg-[#000000] hover:text-white text-gray-600 transition-all duration-300 shadow-sm">
               <Linkedin size={20} strokeWidth={1.5} />
             </a>
-            <a href="#" target="_blank" rel="noreferrer" className="p-2 bg-gray-50 rounded-lg hover:bg-[#E4405F] hover:text-white text-gray-600 transition-all duration-300 shadow-sm">
+            <a href="https://github.com/ZulkaifAhmad" target="_blank" rel="noreferrer" className="p-2 bg-gray-50 rounded-lg hover:bg-[#0A66C2] hover:text-white text-gray-600 transition-all duration-300 shadow-sm">
+              <Github size={20} strokeWidth={1.5} />
+            </a>
+            <a href="https://web.facebook.com/zulkaif.ahmad.149176" target="_blank" rel="noreferrer" className="p-2 bg-gray-50 rounded-lg hover:bg-[#1877F2] hover:text-white text-gray-600 transition-all duration-300 shadow-sm">
+              <Facebook size={20} strokeWidth={1.5} />
+            </a>
+            <a href="https://www.instagram.com/zulkaif497/" target="_blank" rel="noreferrer" className="p-2 bg-gray-50 rounded-lg hover:bg-[#E4405F] hover:text-white text-gray-600 transition-all duration-300 shadow-sm">
               <Instagram size={20} strokeWidth={1.5} />
             </a>
           </div>
