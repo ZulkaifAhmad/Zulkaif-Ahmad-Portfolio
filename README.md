@@ -103,6 +103,6 @@ http://localhost:5173
 
 ## Author
 
-**Zulkaif Ahmad** Frontend Website Developer specializing in React.js and modern web technologies.
+**Zulkaif Ahmad** Frontend Website Developer specializing in React.js and modern web technologies
 
 ---
